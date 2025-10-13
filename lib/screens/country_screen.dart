@@ -24,7 +24,7 @@ class _CountryScreenState extends State<CountryScreen> {
   Widget build(BuildContext context) {
     return 
     Scaffold(
-             appBar: const CustomAppBar(title: "Country  List Explorer", showBack: true),
+             appBar: const CustomAppBar(title: "Country  List", showBack: true),
   
       body: BlocBuilder<CountryBloc, CountryState>(
         builder: (context, state) {
