@@ -34,7 +34,7 @@ class _CountryScreenState extends State<CountryScreen> {
             return ListView.builder(
               itemCount: state.countries.length,
               itemBuilder: (context, index) =>
-                  CountryTile(country: state.countries[index]),
+                  CountryTile(country: state.countries[index],),
             );
           } else if (state is CountryError) {
             return Center(child: Text(state.message));
