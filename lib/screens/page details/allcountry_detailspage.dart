@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:restapiwithbloc/models/allcountrylist_model.dart';
 
-class CountryDetailsPage extends StatelessWidget {
+class AllCountryDetailsPage extends StatelessWidget {
     final ContryListModel country;
 
-  const CountryDetailsPage({super.key, required  this.country});
+  const AllCountryDetailsPage({super.key, required  this.country});
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: AppBar(title: Text(country.name)),
-      body: Padding(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
+       title: Text(country.name, style: const TextStyle(color: Colors.white),),
+        centerTitle: true,
+        elevation: 0,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            color: Colors.blue,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(25),
+              bottomRight: Radius.circular(25),
+            ),
+          ),
+        ),
+  
+      ),
+      body: Padding( 
         padding: const EdgeInsets.all(16.0),
         child: Padding(
           padding: const EdgeInsets.all(20.0),

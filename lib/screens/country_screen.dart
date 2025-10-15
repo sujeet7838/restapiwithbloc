@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restapiwithbloc/bloc/country/country_bloc.dart';
 import 'package:restapiwithbloc/bloc/country/country_event.dart';
 import 'package:restapiwithbloc/bloc/country/country_state.dart';
+import 'package:restapiwithbloc/screens/page%20details/countrydetailspage.dart';
 import 'package:restapiwithbloc/widgets/country_tile.dart';
 import 'package:restapiwithbloc/widgets/custom_appbar.dart';
 
@@ -34,7 +36,21 @@ class _CountryScreenState extends State<CountryScreen> {
             return ListView.builder(
               itemCount: state.countries.length,
               itemBuilder: (context, index) =>
-                  CountryTile(country: state.countries[index],),
+                  CountryTile(country: state.countries[index],
+                       onTap: () {
+                  if (kDebugMode) {
+                    print(" CountryList tapped");
+                  }
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CountryDetailsPage(
+                        countryModel: state.countries[index],
+                      ),
+                    ),
+                  );
+                },
+                  ),
             );
           } else if (state is CountryError) {
             return Center(child: Text(state.message));
